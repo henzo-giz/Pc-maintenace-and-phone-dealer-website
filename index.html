@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nate-Tech Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page Loading Animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #020617;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+        
+        .loader:before, .loader:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            opacity: 0.6;
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        .loader:after {
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+                opacity: 0.6;
+            }
+            80%, 100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .loader-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+            animation: pulse-dot 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+        }
+        
+        body.loaded .page-loader {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loading Animation -->
+    <div class="page-loader">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Nate-Tech Hub</h1>
+                <!-- <p>Bole, Addis Ababa</p> -->
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+            <!-- <video class="bg-video" autoplay loop muted>
+                <source src="assets/videos/Introducing_iPhone_16_Pro___Apple(1080p).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+
+            <img class="bg-video" src="assets/photos/Apple 2.png" alt="apple">
+
+            <div class="overlay"></div>
+
+                <div class="container">
+                    <div class="hero-content">
+                        <h2>Your One-Stop Tech Solution</h2>
+                        <p>Expert maintenance, repairs, and upgrades for all your tech needs with cutting-edge service and guaranteed satisfaction.</p>
+                        <div class="hero-buttons">
+                            <a href="#services" class="btn btn-primary animate-pulse">Our Services</a>
+                            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Our Services</h2>
+                <p>Professional PC and Phone Services</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <h3>PC Repair</h3>
+                    <p>Hardware troubleshooting, component replacement, and system optimization.</p>
+                    <a href="#" class="btn-text">Learn More</a>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Phone Dealer</h3>
+                    <p>Buying and selling used and Brand new smart phones.</p>
+                    <a href="#" class="btn-text">Learn More</a>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Recovery</h3>
+                    <p>Recover lost data from damaged hard drives and memory cards.</p>
+                    <a href="#" class="btn-text">Learn More</a>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-virus-slash"></i>
+                    </div>
+                    <h3>Virus Removal</h3>
+                    <p>Complete malware scanning and removal with security enhancement.</p>
+                    <a href="#" class="btn-text">Learn More</a>
+                </div>
+            </div>
+            <div class="service-booking reveal">
+                <h3>Book a Service</h3>
+                <form id="service-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-type">Service Type</label>
+                        <select id="service-type" name="service-type" required>
+                            <option value="">Select a service</option>
+                            <option value="pc-repair">PC Repair</option>
+                            <option value="virus-removal">Virus Removal</option>
+                            <option value="phone-repair">Phone Repair</option>
+                            <option value="data-recovery">Data Recovery</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Problem Description</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary animate-glow">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Our Products</h2>
+                <p>Buy and Sell Phones and PCs</p>
+            </div>
+            <div class="product-filters reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="phones">Phones</button>
+                <button class="filter-btn" data-filter="laptops">Laptops</button>
+                <button class="filter-btn" data-filter="accessories">Accessories</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card reveal" data-category="phones">
+                    <div class="product-img">
+                        <img src="assets/photos/iphone 13 n.jpg" alt="iPhone 13">
+                        <div class="product-tag">Used</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>iPhone 13</h3>
+                        <p class="product-price">65,000 ETB</p>
+                        <p class="product-desc">Good condition, 128GB storage, 92% Battery</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card reveal" data-category="phones">
+                    <div class="product-img">
+                        <img src="assets/photos/samsung s24 Un.jpg" alt="Samsung Galaxy S25">
+                        <div class="product-tag">New</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Samsung Galaxy S25 Ultra</h3>
+                        <p class="product-price">138,500 ETB</p>
+                        <p class="product-desc">Brand new, 256GB storage, full warranty</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card reveal" data-category="laptops">
+                    <div class="product-img">
+                        <img src="/assets/photos/surface.jpg" alt="Surface pro 14">
+                        <div class="product-tag">Used</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Surface Pro 14</h3>
+                        <p class="product-price">75,000 ETB</p>
+                        <p class="product-desc">i5, 16GB RAM, 512GB SSD, minor scratches</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card reveal" data-category="laptops">
+                    <div class="product-img">
+                        <img src="/assets/photos/mackbook air.jpg" alt="MacBook Air M1">
+                        <div class="product-tag">Used</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>MacBook Air M1</h3>
+                        <p class="product-price">95,000 ETB</p>
+                        <p class="product-desc">8GB RAM, 256GB SSD, sealed box</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card reveal" data-category="accessories">
+                    <div class="product-img">
+                        <img src="/assets/photos/ipad mini n.jpg" alt="Ipad Mini">
+                        <div class="product-tag">New</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Ipad Mini</h3>
+                        <p class="product-price">50,000 ETB</p>
+                        <p class="product-desc">Brand New, 8GB RAM, 128GB SSD, 10in display</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card reveal" data-category="accessories">
+                    <div class="product-img">
+                        <img src="/assets/photos/pixele 9 P.JPEG" alt="Pexil">
+                        <div class="product-tag">New</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pexile 9 Pro XL</h3>
+                        <p class="product-price">125,000 ETB</p>
+                        <p class="product-desc">256GB storage, 8GB RAM, Brand New</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sell-cta reveal">
+                <h3>Want to Sell Your Device?</h3>
+                <p>We offer competitive prices for your used phones and computers.</p>
+                <a href="#contact" class="btn btn-primary animate-pulse">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>About Us</h2>
+                <p>Your Trusted Tech Partner in Addis Abeba</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img reveal">
+                    <img src="/assets/photos/story.jpg" alt="PC Tech Hub Store">
+                </div>
+                <div class="about-text reveal">
+                    <h3>Our Story</h3>
+                    <p>Nate-Tech Hub was established in 2022 with a mission to provide reliable tech services and quality products to the community in Addis Ababa. Our team of certified technicians has over 6 years of combined experience in PC maintenance and mobile device repair.</p>
+                    <p>We pride ourselves on provideing original and quality phones, honest pricing, quality workmanship, and exceptional customer service. Whether you need a quick repair or are looking to buy or sell a device, we're here to help.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Certified Technicians</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Genuine Products</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>60-Day Warranty</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fair Pricing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Contact Us</h2>
+                <p>Get in Touch with Our Team</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info reveal">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Our Location</h3>
+                            <p>Bole Namibia St, Sheger Building, Addis Ababa, Ethiopia</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Phone Number</h3>
+                            <p>+251 93 461 3210</p>
+                            <p>+251 93 461 3210</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Address</h3>
+                            <p>natnaeltadele09@gmail.com</p>
+                            <!-- <p>support@pctechhub.com</p> -->
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                            <!-- <p>Sunday: Closed</p> -->
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/nate_mobiles?igsh=OWdoNjBpMmp1NXI4" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://t.me/natetech" class="social-link" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form reveal">
+                    <h3>Send Us a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" name="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" name="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone Number</label>
+                            <input type="tel" id="contact-phone" name="contact-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="contact-subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="contact-message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary animate-glow">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container reveal">
+                <h3>Find Us on the Map</h3>
+                <div class="map">
+                    <!-- <img src="/placeholder.svg?height=400&width=1200" alt="Map location"> -->
+                    <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.7098535131267!2d38.785288!3d8.9988233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8504a6f42ad3%3A0x2eef9d651c1a922a!2zU2hlZ2VyIEJ1aWxkaW5nIHwgQm9sZSBTaGVnZXIgfCDhiLjhjIjhiK0g4YiF4YqV4Y2DIHwg4Ymm4YiMIOGIuOGMiOGIrQ!5e0!3m2!1sen!2set!4v1743169319299!5m2!1sen!2set" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Nate-Tech Hub</h2>
+                    <p>Your one-stop tech solution in Bole, Addis Ababa</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">PC Repair</a></li>
+                        <li><a href="#">Virus Removal</a></li>
+                        <li><a href="#">Phone Repair</a></li>
+                        <li><a href="#">Data Recovery</a></li>
+                        <li><a href="#">Buy & Sell Devices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on our latest offers and services.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nate-Tech Hub. All Rights Reserved by <a href="https://www.instagram.com/henzo_giz?igsh=MXJqdmpyMmd0YmEzNA%3D%3D&utm_source=qr" target="_blank">Henok Gizachew</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Page loading animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+
